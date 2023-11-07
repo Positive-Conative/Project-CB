@@ -1,0 +1,10 @@
+{
+    "board": {
+        "": {
+            "filePath": "./routers/board/index"
+        },
+        ":boardNum": {
+            "filePath": "./routers/board/detail"
+        }
+    }
+}
