@@ -13,11 +13,6 @@ router.get('/', async function (req, res, next) {
     const query = {
         boardNum: params.boardNum
     }
-    // const queryParams = {
-    //     boardNum: { type: 'Number', data: params.boardNum, default: 1 }
-    // }
-    // const query = typeCheck(queryParams);
-    // console.log(query);
     const result = await getBoardInfo(query);
     res.json(result);
 });
