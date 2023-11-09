@@ -1,7 +1,7 @@
 import app from '../app';
 
 (async () => {
-    app.listen('3000', () => {
-        console.log(`Main server listen on 3000.`);
+    app.listen('8081', () => {
+        console.log(`Main server listen on 8081.`);
     });
 })();

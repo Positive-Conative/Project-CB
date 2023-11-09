@@ -42,9 +42,6 @@ router.delete('/', async function (req, res, next) {
     const params = req.params as paramsType;
     const queryParams = {
         groupNum: { type: 'number', data: params.groupNum },
-        groupName: { type: 'string', data: req.body.groupName },
-        groupMemo: { type: 'string', data: req.body.groupMemo },
-        groupDepth: { type: 'number', data: req.body.groupDepth },
     }
     const query = typeCheck(queryParams);
     await delGroupInfo(query);
