@@ -2,6 +2,7 @@ import express from 'express';
 
 import getBoardInfo from '../../modules/board/get-board-info';
 import setBoardInfo from '../../modules/board/set-board-info';
+import delBoardInfo from '../../modules/board/del-board-info';
 import typeCheck from '../../modules/type-check';
 const router = express.Router({ mergeParams: true });
 
@@ -33,12 +34,14 @@ router.put('/', async function (req, res, next) {
     res.json(result);
 });
 
-module.exports = router;
+router.delete('/', async function (req, res, next) {
+    const params = req.params as paramsType;
+    const queryParams = {
+        boardNum: { type: 'number', data: params.boardNum },
+    }
+    const query = typeCheck(queryParams);
+    const result = await delBoardInfo(query);
+    res.json(result);
+});
 
-interface paramsType {
-    boardTitle: String,
-    boardContent: String,
-    boardFlag: Number,
-    groupNum: Number,
-    boardNum: Number,
-};
+module.exports = router;
