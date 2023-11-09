@@ -21,4 +21,4 @@ const delBoardInfo = async (params: paramsType) => {
     return rows;
 };
 
-export default delBoardInfo; 
+export default delBoardInfo;   
