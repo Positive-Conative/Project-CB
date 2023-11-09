@@ -24,7 +24,7 @@ router.post('/', async function (req, res, next) {
     const query = typeCheck(queryParams);
 
     if (!query.groupName) {
-        return next('dddddddddddddd');
+        // return next('dddddddddddddd');
     }
 
     const result = await addGroup(query);
