@@ -16,6 +16,9 @@ const routesConfig = {
                 "filePath": "./routers/group/info"
             }
         }
+    },
+    "*": {
+        "filePath": "./routers/private"
     }
 }
 
