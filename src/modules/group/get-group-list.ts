@@ -12,7 +12,8 @@ const getGroupList = async (params: paramsType) => {
         SELECT 
             g_idx, 
             g_name, 
-            g_memo
+            g_memo,
+            g_depth
         FROM 
             M_Group
         WHERE
