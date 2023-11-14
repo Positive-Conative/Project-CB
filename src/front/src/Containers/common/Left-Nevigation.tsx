@@ -10,7 +10,7 @@ interface groupList {
 };
 
 const LeftNevigation = () => {
-    const [groupList, setGroupList] = useState([]);
+    const [groupList, setGroupList] = useState<groupList>();
     const props = {};
 
     const getGroupList = async () => {
@@ -18,6 +18,8 @@ const LeftNevigation = () => {
             url: '/api/group',
             method: 'get'
         });
+
+        setGroupList(result);
         console.log(result);
     };
 

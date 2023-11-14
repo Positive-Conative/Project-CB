@@ -11,8 +11,13 @@ router.get('/', async function (req, res, next) {
         depth: { type: 'number', data: req.query.depth, default: 0 }
     }
     const query = typeCheck(queryParams);
-    const result = await getGroupList(query);
-    res.json(result);
+    const groupList = await getGroupList(query);
+
+    console.log(groupList);
+    // const result = groupList.reduce((acc, cur) => {
+
+    // }, []);
+    res.json(groupList);
 });
 
 router.post('/', async function (req, res, next) {

@@ -22,7 +22,7 @@ type ServerResponseType<T> = {
     rows: Array<T> & T;
 };
 
-const baseUrl = 'http://localhost:8081';
+const baseUrl = '';
 const customAjax = async <T>({
     url,
     method,
@@ -47,6 +47,7 @@ const customAjax = async <T>({
         return result;
     } catch (e) {
         console.error(e);
+        return [];
     }
 
 };
