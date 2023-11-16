@@ -1,7 +1,7 @@
 import LeftNevigation from "../../Containers/common/Left-Nevigation";
 
 const Main = () => {
-    console.log("X");
+    // console.log("X");
     return <div>
         <LeftNevigation />
     </div>

@@ -47,7 +47,7 @@ const customAjax = async <T>({
         return result;
     } catch (e) {
         console.error(e);
-        return [];
+        return null;
     }
 
 };

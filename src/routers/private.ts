@@ -7,7 +7,7 @@ interface paramsType {
 };
 
 router.get('/', async function (req, res, next) {
-    console.log("X")
+    // console.log("X")
 });
 
 module.exports = router;

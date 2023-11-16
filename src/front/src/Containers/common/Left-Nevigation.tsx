@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 import LeftNevigationView from "../../Components/common/Left-Nevigation-View";
 import customAjax from "../../modules/custom-ajax";
 
-interface groupList {
+interface groupInfo {
     g_idx: Number,
     g_name: String,
     g_memo: String,
@@ -10,17 +10,20 @@ interface groupList {
 };
 
 const LeftNevigation = () => {
-    const [groupList, setGroupList] = useState<groupList>();
+    const [groupList, setGroupList] = useState<groupInfo[]>();
     const props = {};
 
     const getGroupList = async () => {
-        const result = await customAjax<groupList>({
+        const result = await customAjax<groupInfo[]>({
             url: '/api/group',
             method: 'get'
         });
 
-        setGroupList(result);
-        console.log(result);
+        if (!result) {
+            return;
+        }
+
+        setGroupList(result.rows);
     };
 
     useEffect(() => {

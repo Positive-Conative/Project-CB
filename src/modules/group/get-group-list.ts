@@ -1,7 +1,14 @@
+import { FieldPacket, RowDataPacket } from 'mysql2';
 import db from '../connect-db';
 
 interface paramsType {
     depth: Number,
+};
+interface groupInfo extends RowDataPacket {
+    g_idx: number,
+    g_name: string,
+    g_memo: string,
+    g_depth: number,
 };
 
 const getGroupList = async (params: paramsType) => {
@@ -20,7 +27,7 @@ const getGroupList = async (params: paramsType) => {
             flag = 0 
             AND g_depth = ?
     `;
-    const [rows, fields] = await db.query(query, _params);
+    const [rows, fields]: [groupInfo[], FieldPacket[]] = await db.query(query, _params);
     return rows;
 };
 
