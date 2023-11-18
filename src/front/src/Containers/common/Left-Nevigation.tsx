@@ -1,20 +1,14 @@
 import { useEffect, useState } from "react";
 import LeftNevigationView from "../../Components/common/Left-Nevigation-View";
 import customAjax from "../../modules/custom-ajax";
+import { getGroupListResult } from '../../../../interfaces/groupType';
 
-interface groupInfo {
-    g_idx: Number,
-    g_name: String,
-    g_memo: String,
-    g_depth: Number
-};
 
 const LeftNevigation = () => {
-    const [groupList, setGroupList] = useState<groupInfo[]>();
-    const props = {};
+    const [groupList, setGroupList] = useState<getGroupListResult[]>();
 
     const getGroupList = async () => {
-        const result = await customAjax<groupInfo[]>({
+        const result = await customAjax<getGroupListResult[]>({
             url: '/api/group',
             method: 'get'
         });
@@ -23,6 +17,7 @@ const LeftNevigation = () => {
             return;
         }
 
+        console.log(result.rows)
         setGroupList(result.rows);
     };
 
@@ -30,7 +25,28 @@ const LeftNevigation = () => {
         getGroupList();
     }, []);
 
-    return <LeftNevigationView />
+    const props = {
+        groupList,
+        // handleExpandClick: async () => {
+        //     const result = await customAjax<getGroupListResult[]>({
+        //         url: '/api/group',
+        //         method: 'get'
+        //     });
+
+        //     if (!result) {
+        //         return [];
+        //     }
+        //     return result.rows;
+        // }
+    };
+
+
+    return <LeftNevigationView {...props} />
 }
 
 export default LeftNevigation;
+
+/**
+ * 클릭 전에는 숫자였다가..
+ * 클릭 후에는 오브젝트로 변경.
+*/

@@ -1,28 +1,20 @@
 import express from 'express';
+import { getGroupListResult } from '../../interfaces/groupType';
 
 import addGroup from '../../modules/group/add-group';
 import getGroupList from '../../modules/group/get-group-list';
 import typeCheck from '../../modules/type-check';
 const router = express.Router({ mergeParams: true });
 
-
-interface getGroupListResult {
-    groupIdx: number,
-    groupName: string,
-    groupMemo: string,
-    groupDepth: number
-}
-
 /* GET users listing. */
 router.get('/', async function (req, res, next) {
-
     const queryParams = {
         depth: { type: 'number', data: req.query.depth, default: 0 }
     }
     const query = typeCheck(queryParams);
     const groupList = await getGroupList(query);
 
-    const result: getGroupListResult[] = groupList.reduce((acc, cur) => {
+    const result = groupList.reduce((acc, cur) => {
         acc.push({
             groupIdx: cur.g_idx,
             groupName: cur.g_name,

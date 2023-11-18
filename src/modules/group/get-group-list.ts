@@ -4,7 +4,8 @@ import db from '../connect-db';
 interface paramsType {
     depth: Number,
 };
-interface groupInfo extends RowDataPacket {
+
+interface groupListItem extends RowDataPacket {
     g_idx: number,
     g_name: string,
     g_memo: string,
@@ -27,7 +28,7 @@ const getGroupList = async (params: paramsType) => {
             flag = 0 
             AND g_depth = ?
     `;
-    const [rows, fields]: [groupInfo[], FieldPacket[]] = await db.query(query, _params);
+    const [rows, fields]: [groupListItem[], FieldPacket[]] = await db.query(query, _params);
     return rows;
 };
 
