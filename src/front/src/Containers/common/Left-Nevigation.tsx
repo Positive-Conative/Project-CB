@@ -7,6 +7,10 @@ import { getGroupListResult } from '../../../../interfaces/groupType';
 const LeftNevigation = () => {
     const [groupList, setGroupList] = useState<getGroupListResult[]>();
 
+    const setList = (result: getGroupListResult[]) => {
+
+    };
+
     const getGroupList = async () => {
         const result = await customAjax<getGroupListResult[]>({
             url: '/api/group',
@@ -27,6 +31,9 @@ const LeftNevigation = () => {
 
     const props = {
         groupList,
+        handleExpandClick: (e: React.MouseEvent<HTMLElement>) => {
+            console.log('e', e.currentTarget.dataset.idx);
+        }
         // handleExpandClick: async () => {
         //     const result = await customAjax<getGroupListResult[]>({
         //         url: '/api/group',

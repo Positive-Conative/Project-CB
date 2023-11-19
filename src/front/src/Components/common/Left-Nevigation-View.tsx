@@ -3,15 +3,17 @@ import { getGroupListResult } from "../../../../interfaces/groupType";
 
 interface props {
     groupList?: getGroupListResult[],
+    handleExpandClick?: React.MouseEventHandler<HTMLDivElement>
     // handleExpandClick: () => Promise<getGroupListResult[]>
 }
 
 
-const LeftNevigationView = ({ groupList }: props) => (
+const LeftNevigationView = ({ groupList, handleExpandClick }: props) => (
     <div>
         {
-            groupList?.map((it) => <div>
-                <Link to={'/d'}>+</Link>
+            groupList?.map((it, idx) => <div key={idx}>
+                {/* <Link to={'/d'}>+</Link> */}
+                <div onClick={handleExpandClick} data-idx={it.groupIdx}>+</div>
                 {it.groupName}
             </div>)
         }
