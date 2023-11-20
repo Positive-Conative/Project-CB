@@ -1,12 +1,12 @@
 import { FieldPacket, RowDataPacket } from 'mysql2';
 import db from '../connect-db';
 
-// interface boardList extends RowDataPacket {
-//     b_idx: number;
-//     b_title: string;
-//     create_time: string;
-//     group_idx: number;
-// }
+interface boardListItem extends RowDataPacket {
+    b_idx: number;
+    b_title: string;
+    create_time: string;
+    group_idx: number;
+}
 
 const getBoardList = async () => {
     const query = `
@@ -21,7 +21,7 @@ const getBoardList = async () => {
             flag = 0
     `;
     // const [rows, fields]: [boardList[], FieldPacket[]] = await db.query(query);
-    const [rows, fields] = await db.query(query);
+    const [rows, fields]: [boardListItem[], FieldPacket[]] = await db.query(query);
     return rows;
 };
 

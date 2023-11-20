@@ -1,4 +1,5 @@
 import express from 'express';
+import { getGroupListResult } from '../../interfaces/groupType';
 
 import addGroup from '../../modules/group/add-group';
 import getGroupList from '../../modules/group/get-group-list';
@@ -13,11 +14,24 @@ router.get('/', async function (req, res, next) {
     const query = typeCheck(queryParams);
     const groupList = await getGroupList(query);
 
-    console.log(groupList);
-    // const result = groupList.reduce((acc, cur) => {
+    const result = groupList.reduce((acc, cur) => {
+        const result = {
+            groupIdx: cur.g_idx,
+            groupName: cur.g_name,
+            groupMemo: cur.g_memo,
+            groupDepth: cur.g_depth,
+        }
+        // if (cur.g_depth) {
+        //     await getGroupList(query);
+        // }
+        acc.push(result);
+        return acc;
+    }, <getGroupListResult[]>[]);
 
-    // }, []);
-    res.json(groupList);
+    const dataManufacture = {
+        rows: result
+    }
+    res.json(dataManufacture);
 });
 
 router.post('/', async function (req, res, next) {
