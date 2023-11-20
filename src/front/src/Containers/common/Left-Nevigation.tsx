@@ -1,17 +1,19 @@
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import LeftNevigationView from "../../Components/common/Left-Nevigation-View";
 import customAjax from "../../modules/custom-ajax";
 import { getGroupListResult } from '../../../../interfaces/groupType';
+import LeftNevigationDepth from "../../Components/common/Left-Navigation-Depth";
 
 
 const LeftNevigation = () => {
-    const [groupList, setGroupList] = useState<getGroupListResult[]>();
+    const depthRef = useRef<null[] | HTMLDivElement[]>([]);
 
+    const [groupList, setGroupList] = useState<getGroupListResult[]>();
     const setList = (result: getGroupListResult[]) => {
 
     };
 
-    const getGroupList = async () => {
+    const getGroupList = async (depth: number) => {
         const result = await customAjax<getGroupListResult[]>({
             url: '/api/group',
             method: 'get'
@@ -25,15 +27,20 @@ const LeftNevigation = () => {
         setGroupList(result.rows);
     };
 
+    const handleExpandClick = (e: React.MouseEvent<HTMLElement>) => {
+        const idx = Number(e.currentTarget.dataset.idx) || 0;
+        console.log("XXD", depthRef.current[idx]);
+        // return < LeftNevigationDepth {...props} />
+    }
+
     useEffect(() => {
-        getGroupList();
+        getGroupList(0);
     }, []);
 
     const props = {
+        depthRef,
         groupList,
-        handleExpandClick: (e: React.MouseEvent<HTMLElement>) => {
-            console.log('e', e.currentTarget.dataset.idx);
-        }
+        handleExpandClick,
         // handleExpandClick: async () => {
         //     const result = await customAjax<getGroupListResult[]>({
         //         url: '/api/group',

@@ -15,12 +15,16 @@ router.get('/', async function (req, res, next) {
     const groupList = await getGroupList(query);
 
     const result = groupList.reduce((acc, cur) => {
-        acc.push({
+        const result = {
             groupIdx: cur.g_idx,
             groupName: cur.g_name,
             groupMemo: cur.g_memo,
             groupDepth: cur.g_depth,
-        });
+        }
+        // if (cur.g_depth) {
+        //     await getGroupList(query);
+        // }
+        acc.push(result);
         return acc;
     }, <getGroupListResult[]>[]);
 
