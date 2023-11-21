@@ -2,7 +2,7 @@ import { useEffect, useRef, useState } from "react";
 import LeftNevigationView from "../../Components/common/Left-Nevigation-View";
 import customAjax from "../../modules/custom-ajax";
 import { getGroupListResult } from '../../../../interfaces/groupType';
-import LeftNevigationDepth from "../../Components/common/Left-Navigation-Depth";
+import LeftNevigationDepth from "../../Components/common/Left-Navigation-Group";
 
 
 const LeftNevigation = () => {
