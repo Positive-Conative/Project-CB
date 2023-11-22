@@ -14,7 +14,30 @@ router.get('/', async function (req, res, next) {
     const query = typeCheck(queryParams);
     const groupList = await getGroupList(query);
 
-    const result = groupList.reduce((acc, cur) => {
+
+    const setSubGroups = (idx: number = 0): any => {
+        const temp = [];
+
+        temp.push({
+            groupIdx: groupList[idx].g_idx,
+            groupName: groupList[idx].g_name,
+            groupMemo: groupList[idx].g_memo,
+            groupDepth: groupList[idx].g_depth,
+            subGroups: groupList.reduce((acc: any, cur, sidx) => {
+                if (cur.g_depth === groupList[idx].g_idx) {
+                    acc.push(setSubGroups(sidx));
+                }
+
+                return acc;
+            }, [])
+        })
+
+        return temp;
+    }
+
+    console.log(JSON.stringify(groupList.map((it, idx) => setSubGroups(idx))));
+
+    const result = groupList.reduce((acc, cur, idx) => {
         const obj = {
             groupIdx: cur.g_idx,
             groupName: cur.g_name,
