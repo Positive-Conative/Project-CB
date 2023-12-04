@@ -6,6 +6,7 @@ import getGroupList from '../../modules/group/get-group-list';
 import typeCheck from '../../modules/type-check';
 const router = express.Router({ mergeParams: true });
 
+
 /* GET users listing. */
 router.get('/', async function (req, res, next) {
     const queryParams = {
@@ -14,28 +15,40 @@ router.get('/', async function (req, res, next) {
     const query = typeCheck(queryParams);
     const groupList = await getGroupList(query);
 
+    // const setSubGroups = (original: any, children: any, idx = 0, depth = 0): any => {
 
-    const setSubGroups = (idx: number = 0): any => {
-        const temp = [];
+    // }
+    // return res.json(setSubGroups(groupList));
 
-        temp.push({
-            groupIdx: groupList[idx].g_idx,
-            groupName: groupList[idx].g_name,
-            groupMemo: groupList[idx].g_memo,
-            groupDepth: groupList[idx].g_depth,
-            subGroups: groupList.reduce((acc: any, cur, sidx) => {
-                if (cur.g_depth === groupList[idx].g_idx) {
-                    acc.push(setSubGroups(sidx));
-                }
+    // const tempIdx: any = [];
+    // const setSubGroups = (idx: number = 0): any => {
+    //     const temp: any = [];
 
-                return acc;
-            }, [])
-        })
+    //     console.log(tempIdx);
 
-        return temp;
-    }
+    //     if (tempIdx.indexOf(idx) !== -1) {
+    //         return temp;
+    //     }
 
-    console.log(JSON.stringify(groupList.map((it, idx) => setSubGroups(idx))));
+    //     temp.push({
+    //         groupIdx: groupList[idx].g_idx,
+    //         groupName: groupList[idx].g_name,
+    //         groupMemo: groupList[idx].g_memo,
+    //         groupDepth: groupList[idx].g_depth,
+    //         subGroups: groupList.reduce((acc: any, cur, sidx) => {
+    //             if (cur.g_depth === groupList[idx].g_idx) {
+    //                 acc.push(setSubGroups(sidx));
+    //                 tempIdx.push(sidx);
+    //             }
+
+    //             return acc;
+    //         }, [])
+    //     })
+
+    //     return temp;
+    // }
+
+    // return res.json(groupList.map((it, idx) => setSubGroups(idx)));
 
     const result = groupList.reduce((acc, cur, idx) => {
         const obj = {
