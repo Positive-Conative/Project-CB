@@ -1,6 +1,6 @@
 import { Link } from "react-router-dom"
 import { getGroupListResult } from "../../../../interfaces/groupType";
-import LeftNevigationDepth from "./Left-Navigation-Depth";
+import LeftNevigationGroup from "./Left-Navigation-Group";
 
 interface props {
     depthRef: React.MutableRefObject<HTMLDivElement[] | null[]>,
@@ -13,16 +13,9 @@ interface props {
 const LeftNevigationView = ({ depthRef, groupList, handleExpandClick }: props) => (
     <div>
         hello...
-        {/* <LeftNevigationDepth {...{ depthRef, groupList, handleExpandClick }} /> */}
-        {
-            groupList?.map((it, idx) => <div key={idx}>
-                {/* <Link to={'/d'}>+</Link> */}
-                <div onClick={handleExpandClick} data-idx={idx} ref={(element) => {
-                    depthRef.current[idx] = element;
-                }}>+</div>
-                {it.groupName}
-            </div>)
-        }
+        
+        <LeftNevigationGroup {...{ depthRef, groupList, handleExpandClick }} />
+        
     </div>
 );
 

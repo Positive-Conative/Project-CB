@@ -5,7 +5,7 @@ interface paramsType {
     depth: Number,
 };
 
-interface groupListItem extends RowDataPacket {
+export interface groupListItemType extends RowDataPacket {
     g_idx: number,
     g_name: string,
     g_memo: string,
@@ -14,7 +14,12 @@ interface groupListItem extends RowDataPacket {
 
 const getGroupList = async (params: paramsType) => {
     const _params = [];
-    _params.push(params.depth);
+    const queryWhere = [];
+
+    if (params.depth) {
+        queryWhere.push('g_depth = ?');
+        _params.push(params.depth);
+    }
 
     const query = `
         SELECT 
@@ -26,9 +31,11 @@ const getGroupList = async (params: paramsType) => {
             M_Group
         WHERE
             flag = 0 
-            AND g_depth = ?
+            ${queryWhere.length > 0 ? ' AND ' + queryWhere.join(' AND ') : ''}
+        ORDER BY g_depth asc
     `;
-    const [rows, fields]: [groupListItem[], FieldPacket[]] = await db.query(query, _params);
+
+    const [rows, fields]: [groupListItemType[], FieldPacket[]] = await db.query(query, _params);
     return rows;
 };
 

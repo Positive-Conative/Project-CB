@@ -2,9 +2,29 @@ import express from 'express';
 import { getGroupListResult } from '../../interfaces/groupType';
 
 import addGroup from '../../modules/group/add-group';
-import getGroupList from '../../modules/group/get-group-list';
+import getGroupList, { groupListItemType } from '../../modules/group/get-group-list';
 import typeCheck from '../../modules/type-check';
 const router = express.Router({ mergeParams: true });
+
+const setSubGroups = (groupList: groupListItemType[], depth = 0, result: getGroupListResult[] = []) => {
+    const subgroups = groupList.filter((it: any) => it.g_depth === depth);
+
+    if (subgroups.length <= 0) {
+        return result;
+    }
+
+    subgroups.forEach((it: any, idx: number) => {
+        result.push({
+            groupIdx: it.g_idx,
+            groupName: it.g_name,
+            groupMemo: it.g_memo,
+            groupDepth: it.g_depth,
+            subGroups: setSubGroups(groupList, it.g_idx)
+        });
+    });
+
+    return result;
+}
 
 /* GET users listing. */
 router.get('/', async function (req, res, next) {
@@ -14,22 +34,8 @@ router.get('/', async function (req, res, next) {
     const query = typeCheck(queryParams);
     const groupList = await getGroupList(query);
 
-    const result = groupList.reduce((acc, cur) => {
-        const result = {
-            groupIdx: cur.g_idx,
-            groupName: cur.g_name,
-            groupMemo: cur.g_memo,
-            groupDepth: cur.g_depth,
-        }
-        // if (cur.g_depth) {
-        //     await getGroupList(query);
-        // }
-        acc.push(result);
-        return acc;
-    }, <getGroupListResult[]>[]);
-
     const dataManufacture = {
-        rows: result
+        rows: setSubGroups(groupList)
     }
     res.json(dataManufacture);
 });
