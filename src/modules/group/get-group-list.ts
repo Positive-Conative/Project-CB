@@ -5,7 +5,7 @@ interface paramsType {
     depth: Number,
 };
 
-interface groupListItem extends RowDataPacket {
+export interface groupListItemType extends RowDataPacket {
     g_idx: number,
     g_name: string,
     g_memo: string,
@@ -35,7 +35,7 @@ const getGroupList = async (params: paramsType) => {
         ORDER BY g_depth asc
     `;
 
-    const [rows, fields]: [groupListItem[], FieldPacket[]] = await db.query(query, _params);
+    const [rows, fields]: [groupListItemType[], FieldPacket[]] = await db.query(query, _params);
     return rows;
 };
 
