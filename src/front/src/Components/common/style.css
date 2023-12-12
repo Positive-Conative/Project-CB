@@ -1,0 +1,17 @@
+
+.main-neviation {
+    position: fixed; 
+    left: 0;
+    width: 5rem;
+    height: 100%;
+    background-color: black;
+}
+
+.main-neviation .close-btn {
+    position: absolute;
+    top: 1rem;
+    left: 100%;
+    width: 3rem;
+    height: 3rem;
+    background-color: blue;
+}

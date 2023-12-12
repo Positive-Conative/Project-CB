@@ -2,23 +2,14 @@ import { Link } from "react-router-dom"
 import { getGroupListResult } from "../../../../interfaces/groupType";
 
 interface props {
-    depthRef: React.MutableRefObject<HTMLDivElement[] | null[]>,
-    groupList?: getGroupListResult[],
-    handleExpandClick?: React.MouseEventHandler<HTMLDivElement>
-    // handleExpandClick: () => Promise<getGroupListResult[]>
+    groupList: getGroupListResult[]
 }
 
-const dumyGroupList = [
-    {
-
-    }
-]
-
-const LeftNevigationGroup = ({ depthRef, groupList, handleExpandClick }: props) => (
+const LeftNevigationGroup = ({ groupList }: props) => (
     <div>
         {
             groupList?.map((it, idx) => <div key={idx}>
-
+                <LeftNevigationItem {...it} />
                 {/* <LeftNevigationItem data={item} depth={depth} /> */}
                 {/* <Link to={'/d'}>+</Link> */}
                 {/* <div onClick={handleExpandClick} data-idx={idx} ref={(element) => {
@@ -30,7 +21,15 @@ const LeftNevigationGroup = ({ depthRef, groupList, handleExpandClick }: props) 
     </div>
 );
 
-const LeftNevigationItem = () => {
+const LeftNevigationItem = ({ subGroups, groupName }: getGroupListResult) => {
+    return <div>
+        <div>
+            <span >{groupName}</span>
+        </div>
+        <div>
+            <LeftNevigationGroup groupList={subGroups ?? []} />
+        </div>
+    </div>
     // return <>
     //     <div>
     //         <span style={{ paddingInlineStart: depth * 20 }}>{data.name}</span>
