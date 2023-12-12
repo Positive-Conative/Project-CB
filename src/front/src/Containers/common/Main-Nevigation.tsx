@@ -1,14 +1,11 @@
 import { useEffect, useRef, useState } from "react";
-import LeftNevigationView from "../../Components/common/Left-Nevigation-View";
+import MainNavigation from "../../Components/common/Main-Navigation";
 import customAjax from "../../modules/custom-ajax";
 import { getGroupListResult } from '../../../../interfaces/groupType';
-import LeftNevigationDepth from "../../Components/common/Left-Navigation-Group";
-
 
 const LeftNevigation = () => {
-    const depthRef = useRef<null[] | HTMLDivElement[]>([]);
-
-    const [groupList, setGroupList] = useState<getGroupListResult[]>();
+    const navRef = useRef<HTMLElement>(null);
+    const [groupList, setGroupList] = useState<getGroupListResult[]>([]);
     const setList = (result: getGroupListResult[]) => {
 
     };
@@ -23,24 +20,29 @@ const LeftNevigation = () => {
             return;
         }
 
-        console.log(result.rows)
         setGroupList(result.rows);
     };
-
-    const handleExpandClick = (e: React.MouseEvent<HTMLElement>) => {
-        const idx = Number(e.currentTarget.dataset.idx) || 0;
-        console.log("XXD", depthRef.current[idx]);
-        // return < LeftNevigationDepth {...props} />
-    }
 
     useEffect(() => {
         getGroupList(0);
     }, []);
 
+    const handleNavExpand = () => {
+        if (!navRef.current) {
+            return;
+        }
+
+        if (navRef.current.classList.contains('active')) {
+            navRef.current.classList.remove('active');
+        } else {
+            navRef.current.classList.add('active');
+        }
+    }
+
     const props = {
-        depthRef,
+        navRef,
         groupList,
-        handleExpandClick,
+        handleNavExpand,
         // handleExpandClick: async () => {
         //     const result = await customAjax<getGroupListResult[]>({
         //         url: '/api/group',
@@ -55,7 +57,7 @@ const LeftNevigation = () => {
     };
 
 
-    return <LeftNevigationView {...props} />
+    return <MainNavigation {...props} />
 }
 
 export default LeftNevigation;

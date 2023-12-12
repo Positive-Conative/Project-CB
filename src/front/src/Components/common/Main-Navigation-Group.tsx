@@ -2,17 +2,8 @@ import { Link } from "react-router-dom"
 import { getGroupListResult } from "../../../../interfaces/groupType";
 
 interface props {
-    depthRef?: React.MutableRefObject<HTMLDivElement[] | null[]>,
-    groupList?: getGroupListResult[],
-    handleExpandClick?: React.MouseEventHandler<HTMLDivElement>
-    // handleExpandClick: () => Promise<getGroupListResult[]>
+    groupList: getGroupListResult[]
 }
-
-const dumyGroupList = [
-    {
-
-    }
-]
 
 const LeftNevigationGroup = ({ groupList }: props) => (
     <div>
