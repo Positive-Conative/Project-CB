@@ -1,0 +1,12 @@
+:root {
+    --main-navigation-width: 5rem;
+
+    /* https://www.rapidtables.org/ko/web/color/gray-color.html */
+    --gray-100: #ececec;
+    --gray-200: #DCDCDC;
+    --gray-300: #D3D3D3;
+    --gray-400: #C0C0C0;
+    --gray-500: #A9A9A9;
+    --gray-600: #808080;
+    --gray-700: #696969;
+}

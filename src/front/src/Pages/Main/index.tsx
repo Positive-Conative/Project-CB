@@ -4,6 +4,7 @@ const Main = () => {
     // console.log("X");
     return <div>
         <LeftNevigation />
+        <div className="container">xff</div>
     </div>
 }
 
