@@ -13,8 +13,10 @@ interface props {
 
 
 const LeftNevigationView = ({ navRef, handleNavExpand, groupList }: props) => (
-    <nav className='main-neviation' ref={navRef}>
-        <div className="close-btn" onClick={handleNavExpand}>x</div>
+    <nav className='main-nevigation' ref={navRef}>
+        <div className="expand-btn" onClick={handleNavExpand}>
+            open]
+        </div>
         <MainNevigationGroup groupList={groupList} />
     </nav>
 );

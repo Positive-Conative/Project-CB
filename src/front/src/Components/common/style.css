@@ -1,17 +1,30 @@
-
-.main-neviation {
+.main-nevigation {
     position: fixed; 
-    left: 0;
-    width: 5rem;
+    left: calc(0px - var(--main-navigation-width));
+    width: var(--main-navigation-width);
     height: 100%;
     background-color: black;
+    transition: all 0.35s;
 }
 
-.main-neviation .close-btn {
+.main-nevigation.active {
+    left: 0;
+}
+
+.main-nevigation.active ~ .container {
+    width: calc(100% - var(--main-navigation-width));
+    margin-left: var(--main-navigation-width);
+}
+
+.main-nevigation .expand-btn {
     position: absolute;
     top: 1rem;
     left: 100%;
-    width: 3rem;
+    width: 1.5rem;
     height: 3rem;
-    background-color: blue;
+    background-color: var(--gray-100);
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
