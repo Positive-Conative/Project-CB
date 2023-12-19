@@ -13,4 +13,5 @@ html, body {
 
 .container {
     transition: all 0.35s;
+    position: relative;
 }
