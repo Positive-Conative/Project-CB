@@ -3,17 +3,28 @@
     left: calc(0px - var(--main-navigation-width));
     width: var(--main-navigation-width);
     height: 100%;
-    background-color: black;
+    background-color: white;
     transition: all 0.35s;
 }
 
-.main-nevigation.active {
+.main-nevigation.open {
     left: 0;
 }
 
-.main-nevigation.active ~ .container {
+.main-nevigation.open ~ .container {
     width: calc(100% - var(--main-navigation-width));
     margin-left: var(--main-navigation-width);
+}
+
+.main-nevigation.open ~ .container::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: black;
+    opacity: 30%;
 }
 
 .main-nevigation .expand-btn {
@@ -27,4 +38,18 @@
     display: flex;
     align-items: center;
     justify-content: center;
+}
+
+/*  */
+.user-profile {
+
+}
+
+.user-profile .user-profile-img-wrapper .profile-bg {
+    width: 100%;
+    line-height: 50%;
+}
+
+.user-profile .user-profile-img-wrapper .profile-img {
+    width: 100%;
 }

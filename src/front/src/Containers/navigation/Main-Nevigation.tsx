@@ -1,5 +1,5 @@
 import { useEffect, useRef, useState } from "react";
-import MainNavigation from "../../Components/common/Main-Navigation";
+import MainNavigation from "../../Components/navigation/Main-Navigation";
 import customAjax from "../../modules/custom-ajax";
 import { getGroupListResult } from '../../../../interfaces/groupType';
 
@@ -32,10 +32,10 @@ const LeftNevigation = () => {
             return;
         }
 
-        if (navRef.current.classList.contains('active')) {
-            navRef.current.classList.remove('active');
+        if (navRef.current.classList.contains('open')) {
+            navRef.current.classList.remove('open');
         } else {
-            navRef.current.classList.add('active');
+            navRef.current.classList.add('open');
         }
     }
 

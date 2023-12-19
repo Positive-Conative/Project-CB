@@ -1,4 +1,4 @@
-import LeftNevigation from "../../Containers/common/Main-Nevigation";
+import LeftNevigation from "../../Containers/navigation/Main-Nevigation";
 
 const Main = () => {
     // console.log("X");
