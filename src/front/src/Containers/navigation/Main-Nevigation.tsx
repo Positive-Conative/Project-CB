@@ -1,4 +1,4 @@
-import { useEffect, useRef, useState } from "react";
+import { MouseEvent, useEffect, useRef, useState } from "react";
 import MainNavigation from "../../Components/navigation/Main-Navigation";
 import customAjax from "../../modules/custom-ajax";
 import { getGroupListResult } from '../../../../interfaces/groupType';
@@ -39,10 +39,23 @@ const LeftNevigation = () => {
         }
     }
 
+    const handleGroupExpand = (e: MouseEvent) => {
+        if (!e.currentTarget) {
+            return;
+        }
+
+        if (e.currentTarget.classList.contains('expand')) {
+            e.currentTarget.classList.remove('expand');
+        } else {
+            e.currentTarget.classList.add('expand');
+        }
+    }
+
     const props = {
         navRef,
         groupList,
         handleNavExpand,
+        handleGroupExpand,
         // handleExpandClick: async () => {
         //     const result = await customAjax<getGroupListResult[]>({
         //         url: '/api/group',

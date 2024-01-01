@@ -44,12 +44,34 @@
 .user-profile {
 
 }
+.user-profile .user-profile-img-wrapper {
+    position: relative;
+}
 
 .user-profile .user-profile-img-wrapper .profile-bg {
     width: 100%;
-    line-height: 50%;
 }
 
 .user-profile .user-profile-img-wrapper .profile-img {
-    width: 100%;
+    width: calc(var(--main-navigation-width) / 2);
+    height: calc(var(--main-navigation-width) / 2);
+    border-radius: 15px;
+
+    position: absolute;
+    top: 25%;
+    left: 25%;
+}
+
+.user-profile .user-profile-img-wrapper .user-name {
+    margin-top: calc(var(--main-navigation-width) / 4);
+}
+
+/*  */
+
+.nav-item {
+    display: none;
+}
+
+.nav-group.expand ~ .nav-item{
+    display:block;
 }

@@ -2,14 +2,19 @@ import { Link } from "react-router-dom"
 import { getGroupListResult } from "../../../../interfaces/groupType";
 
 interface props {
-    groupList: getGroupListResult[]
+    groupList: getGroupListResult[],
+    handleGroupExpand?: React.MouseEventHandler<HTMLDivElement>,
 }
 
-const LeftNevigationGroup = ({ groupList }: props) => (
-    <div>
+interface groupItemType extends getGroupListResult {
+    handleGroupExpand?: React.MouseEventHandler<HTMLDivElement>,
+}
+
+const LeftNevigationGroup = ({ groupList, handleGroupExpand }: props) => (
+    <>
         {
             groupList?.map((it, idx) => <div key={idx}>
-                <LeftNevigationItem {...it} />
+                <LeftNevigationItem {...it} handleGroupExpand={handleGroupExpand} />
                 {/* <LeftNevigationItem data={item} depth={depth} /> */}
                 {/* <Link to={'/d'}>+</Link> */}
                 {/* <div onClick={handleExpandClick} data-idx={idx} ref={(element) => {
@@ -18,16 +23,16 @@ const LeftNevigationGroup = ({ groupList }: props) => (
                 {it.groupName} */}
             </div>)
         }
-    </div>
+    </>
 );
 
-const LeftNevigationItem = ({ subGroups, groupName }: getGroupListResult) => {
+const LeftNevigationItem = ({ subGroups, groupName, handleGroupExpand }: groupItemType) => {
     return <div>
-        <div>
-            <span >{groupName}</span>
+        <div className='nav-group' onClick={handleGroupExpand}>
+            {groupName}
         </div>
-        <div>
-            <LeftNevigationGroup groupList={subGroups ?? []} />
+        <div className='nav-item'>
+            <LeftNevigationGroup groupList={subGroups ?? []} handleGroupExpand={handleGroupExpand} />
         </div>
     </div>
     // return <>
