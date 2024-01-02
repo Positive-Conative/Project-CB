@@ -42,14 +42,16 @@
 
 /*  */
 .user-profile {
-
+    text-align: center;
 }
+
 .user-profile .user-profile-img-wrapper {
     position: relative;
 }
 
 .user-profile .user-profile-img-wrapper .profile-bg {
     width: 100%;
+    height: calc(var(--main-navigation-width) / 2);
 }
 
 .user-profile .user-profile-img-wrapper .profile-img {
@@ -58,20 +60,31 @@
     border-radius: 15px;
 
     position: absolute;
-    top: 25%;
+    top: 20%;
     left: 25%;
 }
 
 .user-profile .user-profile-img-wrapper .user-name {
     margin-top: calc(var(--main-navigation-width) / 4);
+    font-size: 1.25rem;
+    font-weight: 600;
 }
 
-/*  */
 
+.user-profile .user-profile-img-wrapper .user-notice {
+    font-size: 0.85rem;
+    margin: 0.75rem 0;
+}
+/*  */
 .nav-item {
     display: none;
+    /* transition: all 0.35s;
+    height: 0;
+    opacity: 0; */
 }
 
 .nav-group.expand ~ .nav-item{
     display:block;
+    /* height: 100%;
+    opacity: 1; */
 }

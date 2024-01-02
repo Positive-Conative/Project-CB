@@ -3,14 +3,13 @@ import { getGroupListResult } from "../../../../interfaces/groupType";
 
 interface props {
     groupList: getGroupListResult[],
+}
+
+interface groupEvent {
     handleGroupExpand?: React.MouseEventHandler<HTMLDivElement>,
 }
 
-interface groupItemType extends getGroupListResult {
-    handleGroupExpand?: React.MouseEventHandler<HTMLDivElement>,
-}
-
-const LeftNevigationGroup = ({ groupList, handleGroupExpand }: props) => (
+const LeftNevigationGroup = ({ groupList, handleGroupExpand }: props & groupEvent) => (
     <>
         {
             groupList?.map((it, idx) => <div key={idx}>
@@ -26,7 +25,7 @@ const LeftNevigationGroup = ({ groupList, handleGroupExpand }: props) => (
     </>
 );
 
-const LeftNevigationItem = ({ subGroups, groupName, handleGroupExpand }: groupItemType) => {
+const LeftNevigationItem = ({ subGroups, groupName, handleGroupExpand }: getGroupListResult & groupEvent) => {
     return <div>
         <div className='nav-group' onClick={handleGroupExpand}>
             {groupName}

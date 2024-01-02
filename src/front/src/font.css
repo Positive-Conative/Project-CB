@@ -1,0 +1,30 @@
+@charset "utf-8";
+
+@font-face {
+    font-family: 'Nanuh Gothic Light';
+    font-style: normal;
+    font-weight: 200;
+    src: url('../public/font/namuh/namuh-gothic-light.ttf') format("truetype");
+}
+
+@font-face {
+    font-family: 'Nanuh Gothic Reguler';
+    font-style: normal;
+    font-weight: 500;
+    src: url('../public/font/namuh/namuh-gothic-regular.ttf') format("truetype");
+}
+
+@font-face {
+    font-family: 'Nanuh Gothic Bold';
+    font-style: normal;
+    font-weight: 700;
+    src: url('../public/font/namuh/namuh-gothic-bold.ttf') format("truetype");
+}
+
+@font-face {
+    font-family: 'Nanuh Gothic Extrabold';
+    font-style: normal;
+    font-weight: 800;
+    src: url('../public/font/namuh/namuh-gothic-extrabold.ttf') format("truetype");
+}
+
