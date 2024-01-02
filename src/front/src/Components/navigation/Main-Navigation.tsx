@@ -7,18 +7,20 @@ import UserProfile from './User-Profile';
 interface props {
     // navRef?: React.MutableRefObject<HTMLElement>,
     navRef: React.RefObject<HTMLElement>,
-    handleNavExpand: React.MouseEventHandler<HTMLDivElement>,
     groupList: getGroupListResult[],
+    handleNavExpand: React.MouseEventHandler<HTMLDivElement>,
+    handleGroupExpand: React.MouseEventHandler<HTMLDivElement>,
     // handleExpandClick: () => Promise<getGroupListResult[]>
 }
 
-const LeftNevigationView = ({ navRef, handleNavExpand, groupList }: props) => (
+const LeftNevigationView = ({ navRef, groupList, handleNavExpand, handleGroupExpand }: props) => (
     <nav className='main-nevigation open' ref={navRef}>
         <div className="expand-btn" onClick={handleNavExpand}>
             open]
         </div>
         <UserProfile />
-        <MainNevigationGroup groupList={groupList} />
+        <hr />
+        <MainNevigationGroup groupList={groupList} handleGroupExpand={handleGroupExpand} />
     </nav>
 );
 
