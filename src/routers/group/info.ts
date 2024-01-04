@@ -28,7 +28,7 @@ router.put('/', async function (req, res, next) {
         groupNum: { type: 'number', data: params.groupNum },
         groupName: { type: 'string', data: req.body.groupName },
         groupMemo: { type: 'string', data: req.body.groupMemo },
-        groupDepth: { type: 'number', data: req.body.groupDepth },
+        groupReference: { type: 'number', data: req.body.groupReference },
     }
     const query = typeCheck(queryParams);
     await setGroupInfo(query);

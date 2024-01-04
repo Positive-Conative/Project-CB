@@ -6,8 +6,8 @@ import getGroupList, { groupListItemType } from '../../modules/group/get-group-l
 import typeCheck from '../../modules/type-check';
 const router = express.Router({ mergeParams: true });
 
-const setSubGroups = (groupList: groupListItemType[], depth = 0, result: getGroupListResult[] = []) => {
-    const subgroups = groupList.filter((it: any) => it.g_depth === depth);
+const setSubGroups = (groupList: groupListItemType[], reference = 0, result: getGroupListResult[] = []) => {
+    const subgroups = groupList.filter((it: any) => it.g_reference === reference);
 
     if (subgroups.length <= 0) {
         return result;
@@ -18,7 +18,7 @@ const setSubGroups = (groupList: groupListItemType[], depth = 0, result: getGrou
             groupIdx: it.g_idx,
             groupName: it.g_name,
             groupMemo: it.g_memo,
-            groupDepth: it.g_depth,
+            groupReference: it.g_reference,
             subGroups: setSubGroups(groupList, it.g_idx)
         });
     });
@@ -44,7 +44,7 @@ router.post('/', async function (req, res, next) {
     const queryParams = {
         groupName: { type: 'string', data: req.body.groupName },
         groupMemo: { type: 'string', data: req.body.groupMemo },
-        groupDepth: { type: 'number', data: req.body.groupDepth },
+        groupReference: { type: 'number', data: req.body.groupReference },
     }
     const query = typeCheck(queryParams);
 

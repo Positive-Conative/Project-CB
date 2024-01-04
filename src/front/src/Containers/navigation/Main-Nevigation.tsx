@@ -6,9 +6,8 @@ import { getGroupListResult } from '../../../../interfaces/groupType';
 const LeftNevigation = () => {
     const navRef = useRef<HTMLElement>(null);
     const [groupList, setGroupList] = useState<getGroupListResult[]>([]);
-    const setList = (result: getGroupListResult[]) => {
+    const [depthCount, setDepthCount] = useState<number>(0);
 
-    };
 
     const getGroupList = async (depth: number) => {
         const result = await customAjax<getGroupListResult[]>({
@@ -56,17 +55,6 @@ const LeftNevigation = () => {
         groupList,
         handleNavExpand,
         handleGroupExpand,
-        // handleExpandClick: async () => {
-        //     const result = await customAjax<getGroupListResult[]>({
-        //         url: '/api/group',
-        //         method: 'get'
-        //     });
-
-        //     if (!result) {
-        //         return [];
-        //     }
-        //     return result.rows;
-        // }
     };
 
 
