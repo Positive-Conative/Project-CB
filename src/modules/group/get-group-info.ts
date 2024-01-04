@@ -13,7 +13,7 @@ const getGroupInfo = async (params: paramsType) => {
             g_idx, 
             g_name, 
             g_memo,
-            g_depth
+            g_reference
         FROM 
             M_Group
         WHERE

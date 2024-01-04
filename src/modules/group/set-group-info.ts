@@ -3,7 +3,7 @@ import db from '../connect-db';
 interface paramsType {
     groupName: String,
     groupMemo: String,
-    groupDepth: Number,
+    groupReference: Number,
     groupNum: Number,
 };
 
@@ -19,9 +19,9 @@ const setGroupInfo = async (params: paramsType) => {
         querySet.push('g_memo = ?');
         _params.push(params.groupMemo);
     }
-    if (params.groupDepth) {
-        querySet.push('g_depth = ?');
-        _params.push(params.groupDepth);
+    if (params.groupReference) {
+        querySet.push('g_reference = ?');
+        _params.push(params.groupReference);
     }
     _params.push(params.groupNum);
 

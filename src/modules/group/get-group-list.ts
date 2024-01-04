@@ -9,7 +9,7 @@ export interface groupListItemType extends RowDataPacket {
     g_idx: number,
     g_name: string,
     g_memo: string,
-    g_depth: number,
+    g_reference: number,
 };
 
 const getGroupList = async (params: paramsType) => {
@@ -17,7 +17,7 @@ const getGroupList = async (params: paramsType) => {
     const queryWhere = [];
 
     if (params.depth) {
-        queryWhere.push('g_depth = ?');
+        queryWhere.push('g_reference = ?');
         _params.push(params.depth);
     }
 
@@ -26,13 +26,13 @@ const getGroupList = async (params: paramsType) => {
             g_idx, 
             g_name, 
             g_memo,
-            g_depth
+            g_reference
         FROM 
             M_Group
         WHERE
             flag = 0 
             ${queryWhere.length > 0 ? ' AND ' + queryWhere.join(' AND ') : ''}
-        ORDER BY g_depth asc
+        ORDER BY g_reference asc
     `;
 
     const [rows, fields]: [groupListItemType[], FieldPacket[]] = await db.query(query, _params);
