@@ -20,7 +20,11 @@ const LeftNevigationView = ({ navRef, groupList, handleNavExpand, handleGroupExp
         </div>
         <UserProfile />
         <hr />
-        <MainNevigationGroup groupList={groupList} handleGroupExpand={handleGroupExpand} depth={0} />
+        <MainNevigationGroup {...{
+            groupList,
+            handleGroupExpand,
+            depth: 0,
+        }} />
     </nav>
 );
 

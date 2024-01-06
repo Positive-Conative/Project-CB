@@ -13,22 +13,27 @@ interface groupEvent {
 const LeftNevigationGroup = ({ groupList, handleGroupExpand, depth }: props & groupEvent) => (
     <>
         {
-            groupList?.map((it, idx) => <div key={idx}>
-                <LeftNevigationItem {...it} handleGroupExpand={handleGroupExpand} depth={depth} />
+            groupList?.map((it, idx) => <div key={it.groupIdx}>
+                <LeftNevigationGroupItem {...it} {...{
+                    handleGroupExpand,
+                    depth,
+                }} />
             </div>)
         }
     </>
 );
 
-const LeftNevigationItem = ({ subGroups, groupName, handleGroupExpand, depth }: getGroupListResult & groupEvent) => {
-    return <div style={{ paddingInlineStart: depth * 20 }}>
+const LeftNevigationGroupItem = ({ subGroups, groupName, handleGroupExpand, depth }: getGroupListResult & groupEvent) => {
+    // style={{ paddingInlineStart: depth * 20 }}>
+    return <div className='nav-group-wrapper' >
         <div className='nav-group' onClick={handleGroupExpand}>
+            <div className='expand-navigator'></div>
             {groupName}
         </div>
         <div className='nav-item'>
             <LeftNevigationGroup groupList={subGroups ?? []} handleGroupExpand={handleGroupExpand} depth={depth + 1} />
         </div>
-    </div>
+    </div >
 }
 
 export default LeftNevigationGroup;
