@@ -1,4 +1,6 @@
 import db from '../connect-db';
+import {FieldPacket} from "mysql2";
+import {groupListItemType} from "./get-group-list";
 
 interface paramsType {
     groupNum: Number,
@@ -20,7 +22,7 @@ const getGroupInfo = async (params: paramsType) => {
             flag = 0 
             AND g_idx = ?
     `;
-    const [rows, fields] = await db.query(query, _params);
+    const [rows, fields]: [groupListItemType[], FieldPacket[]]  = await db.query(query, _params);
     return rows;
 };
 

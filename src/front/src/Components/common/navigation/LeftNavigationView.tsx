@@ -1,5 +1,5 @@
 import './style.css';
-import { getGroupListResult } from '../../../../interfaces/groupType';
+import { getGroupListResult } from '../../../../../interfaces/groupType';
 import UserProfileView from './UserProfileView';
 import GroupExpandView from './GroupExpandView';
 

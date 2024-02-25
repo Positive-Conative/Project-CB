@@ -1,5 +1,5 @@
 type AjaxGetOptionType = {
-    url: string;
+    path: string;
     method: string;
     headers?: object;
     qs?: {
@@ -8,7 +8,7 @@ type AjaxGetOptionType = {
 };
 
 type AjaxPostOptionType = {
-    url: string;
+    path: string;
     method: string;
     headers?: object;
     body?: {
@@ -23,24 +23,19 @@ type ServerResponseType<T> = {
 };
 
 const baseUrl = '';
-const customAjax = async <T>({
-    url,
-    method,
-    headers,
-    qs,
-    body,
-}: AjaxGetOptionType & AjaxPostOptionType) => {
+const customAjax = async <T>({ path, method, headers, qs, body }: AjaxGetOptionType & AjaxPostOptionType) => {
     try {
         const response =
             method.toLocaleLowerCase() === 'get'
-                ? await fetch(`${baseUrl}${url}?${new URLSearchParams(qs)}`)
-                : await fetch(`${baseUrl}${url}`, {
-                    method,
-                    body: JSON.stringify(body),
-                });
+                ? await fetch(`${baseUrl}${path}?${new URLSearchParams(qs)}`)
+                : await fetch(`${baseUrl}${path}`, {
+                      method,
+                      body: JSON.stringify(body)
+                  });
 
         // todo: status별 error혹은 예외처리 진행
         if (response.status === 401) {
+            //,,,
         }
 
         const result: Promise<ServerResponseType<T>> = response.json();
@@ -49,7 +44,6 @@ const customAjax = async <T>({
         console.error(e);
         return null;
     }
-
 };
 
 export default customAjax;

@@ -1,7 +1,7 @@
 import React, { MouseEvent, useEffect, useRef, useState } from 'react';
 import customAjax from '../../modules/custom-ajax';
 import { getGroupListResult } from '../../../../interfaces/groupType';
-import LeftNavigationView from '../../Components/navigation/LeftNavigationView';
+import LeftNavigationView from '../../Components/common/navigation/LeftNavigationView';
 
 const LeftNavigation = () => {
     const navRef = useRef<HTMLElement>(null);
@@ -10,7 +10,7 @@ const LeftNavigation = () => {
 
     const getGroupList = async () => {
         const result = await customAjax<getGroupListResult[]>({
-            url: '/api/group',
+            path: '/api/group',
             method: 'get'
         });
 

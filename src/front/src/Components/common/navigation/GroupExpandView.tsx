@@ -1,5 +1,5 @@
 import { Link } from 'react-router-dom';
-import { getGroupListResult } from '../../../../interfaces/groupType';
+import { getGroupListResult } from '../../../../../interfaces/groupType';
 import { MouseEvent, useState } from 'react';
 
 interface props {
