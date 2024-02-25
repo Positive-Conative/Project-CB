@@ -1,11 +1,8 @@
-import LeftNevigation from "../../Containers/navigation/Main-Nevigation";
+import LeftNavigation from '../../Containers/navigation/Main-Navigation';
 
-const Main = () => {
+const Main = () => (
     // console.log("X");
-    return <div>
-        <LeftNevigation />
-        <div className="container">xff</div>
-    </div>
-}
+    <div className="container">xff</div>
+);
 
 export default Main;
