@@ -17,7 +17,6 @@ const GroupPosts = () => {
         if (!result?.rows) {
             return;
         }
-        console.log(result);
 
         setGroupInfo(result.rows[0]);
     };

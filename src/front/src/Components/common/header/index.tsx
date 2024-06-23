@@ -6,8 +6,7 @@ interface PostHeaderType {
 }
 
 export const PostHeader = ({ headerText, explainText }: PostHeaderType) => (
-    <div>
-        ya
+    <div className="post-header">
         <h2>{headerText}</h2>
         <h4>{explainText}</h4>
     </div>

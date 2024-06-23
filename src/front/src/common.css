@@ -4,8 +4,9 @@
 }
 
 html, body {
-    margin: 0;
+    margin: auto;
     min-height: 100%;
+    max-width: 1250px;
 }
 
 .container {

@@ -1,0 +1,144 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="aa1202f1-1a32-497d-8d3c-79febdac544a" name="변경" comment="[Modify] 그룹 인포 가져오는 영역 변경">
+      <change afterPath="$PROJECT_DIR$/src/front/src/Components/groups/style.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/front/src/Components/write/ToastUiEditor.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/front/src/Components/write/WritePostView.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/front/src/Components/write/style.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/front/src/Containers/write/Write-Post.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/front/src/Pages/Write/index.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/routers/file/upload.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/config/routes.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/config/routes.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/front/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/src/front/package-lock.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/front/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/src/front/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/front/src/App.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/front/src/App.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/front/src/Components/common/header/index.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/front/src/Components/common/header/index.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/front/src/Components/common/header/style.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/front/src/Components/common/header/style.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/front/src/Components/common/navigation/style.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/front/src/Components/common/navigation/style.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/front/src/Components/groups/GroupPostsView.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/front/src/Components/groups/GroupPostsView.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/front/src/Containers/groups/Group-Posts.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/front/src/Containers/groups/Group-Posts.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/front/src/common.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/front/src/common.css" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="GitHubPullRequestSearchHistory">{
+  &quot;lastFilter&quot;: {
+    &quot;state&quot;: &quot;OPEN&quot;
+  }
+}</component>
+  <component name="GitToolBoxStore">
+    <option name="projectConfigVersion" value="5" />
+  </component>
+  <component name="GithubPullRequestsUISettings">
+    <option name="selectedUrlAndAccountId">
+      <UrlAndAccount>
+        <option name="accountId" value="2af17ab4-924a-4554-9334-7bbdb7cd1aa8" />
+        <option name="url" value="https://github.com/Positive-Conative/project-cb" />
+      </UrlAndAccount>
+    </option>
+  </component>
+  <component name="MarkdownSettingsMigration">
+    <option name="stateVersion" value="1" />
+  </component>
+  <component name="ProjectId" id="2cqZRNHKHWHlizYIXzAE3sMnQvu" />
+  <component name="ProjectLevelVcsManager">
+    <ConfirmationsSetting value="2" id="Add" />
+  </component>
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
+    &quot;js.linters.configure.manually.selectedeslint&quot;: &quot;true&quot;,
+    &quot;last_opened_file_path&quot;: &quot;/Users/conative/Desktop/Programs/project-cb/src/routers&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.standard&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;/Users/conative/Desktop/Programs/ESLint/node_modules/eslint&quot;,
+    &quot;node.js.selected.package.standard&quot;: &quot;&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;settings.javascript.linters.eslint&quot;,
+    &quot;ts.external.directory.path&quot;: &quot;/Users/conative/Desktop/Programs/project-cb/src/front/node_modules/typescript/lib&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+  }
+}</component>
+  <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/src/routers" />
+      <recent name="$PROJECT_DIR$/src/front/src/Components/write" />
+      <recent name="$PROJECT_DIR$/src/front/src/Containers/write" />
+      <recent name="$PROJECT_DIR$/src/front/src/Pages/Write" />
+      <recent name="$PROJECT_DIR$/src/front/src/Components/groups" />
+    </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/src/front/src/Components/common" />
+    </key>
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="애플리케이션 수준" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="디폴트 작업">
+      <changelist id="aa1202f1-1a32-497d-8d3c-79febdac544a" name="변경" comment="" />
+      <created>1708841059120</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1708841059120</updated>
+      <workItem from="1708841060190" duration="3161000" />
+      <workItem from="1708844228610" duration="4371000" />
+      <workItem from="1710525634396" duration="138000" />
+      <workItem from="1710575745913" duration="7793000" />
+      <workItem from="1713069305557" duration="3051000" />
+      <workItem from="1713194578035" duration="591000" />
+      <workItem from="1719122912656" duration="2919000" />
+    </task>
+    <task id="LOCAL-00001" summary="[Modify] 기초공사 진행함">
+      <created>1708845666527</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1708845666527</updated>
+    </task>
+    <task id="LOCAL-00002" summary="[Modify] 그룹 인포 가져오는 영역 변경">
+      <created>1708847971732</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1708847971732</updated>
+    </task>
+    <option name="localTasksCounter" value="3" />
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="[Modify] 기초공사 진행함" />
+    <MESSAGE value="[Modify] 그룹 인포 가져오는 영역 변경" />
+    <option name="LAST_COMMIT_MESSAGE" value="[Modify] 그룹 인포 가져오는 영역 변경" />
+  </component>
+</project>

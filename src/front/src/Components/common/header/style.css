@@ -1,0 +1,9 @@
+.post-header > h2,
+.post-header > h4{
+    text-align: center;
+    margin: 0;
+}
+
+.post-header > h2 {
+    font-size: 1.5rem;
+}

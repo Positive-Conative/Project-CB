@@ -15,6 +15,11 @@ const routesConfig = {
             ":groupNum": {
                 "filePath": "./routers/group/info"
             }
+        },
+        "file": {
+            "upload": {
+                "filePath": "./routers/file/upload"
+            }
         }
     },
     "*": {
